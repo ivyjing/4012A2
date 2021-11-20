@@ -1,31 +1,31 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Header from './components/Header';
+import Home from './components/Home';
 
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
+import Checkout from './components/Checkout';
 
-import {Navbar} from './components/navbar/index';
-import {AllTodosPage} from './components/pages/all-todos/index';
-import {NewTodoPage} from './components/pages/new-todo/index';
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route exact path="/">
-            <AllTodosPage></AllTodosPage>
-          </Route>
-          <Route path="/new">
-            <NewTodoPage></NewTodoPage>
-          </Route>
-        </Switch>
-      </Router>
+    <Router>
+    <div className="app">
+      <Header />
+      <Switch>
+      <Route path="/checkout">
+          <Checkout />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
     </div>
+    </Router>
   );
 }
 

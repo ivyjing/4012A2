@@ -3,14 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {TodosContextProvider} from './context/todos-context';
+import reducer, { initialState } from './components/reducer';
+import { StateProvider } from './components/StateProvider';
 
 ReactDOM.render(
-  <TodosContextProvider>
-    <App />
-  </TodosContextProvider>,
+  <React.StrictMode>
+    <StateProvider initialState={initialState} reducer={reducer}> 
+      <App />
+    </StateProvider>
+  </React.StrictMode>,
   document.getElementById('root')
 );
+//initialState is what the data look like at the beginning, reducer is how to manipulate with the data
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
