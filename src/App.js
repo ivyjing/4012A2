@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Header from './components/Header';
 import Home from './components/Home';
+import Footer from './components/Footer';
 
 import {
   BrowserRouter as Router,
@@ -13,8 +14,9 @@ import Checkout from './components/Checkout';
 
 function App() {
   return (
+    <div className="page-container">
+      <div className="content-wrap">
     <Router>
-    <div className="app">
       <Header />
       <Switch>
       <Route path="/checkout">
@@ -24,8 +26,11 @@ function App() {
           <Home />
         </Route>
       </Switch>
-    </div>
     </Router>
+    </div>
+    <Footer />  
+    </div>
+
   );
 }
 
